@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 - Q3</title>
+
+    <style>
+        * {
+            margin: none;
+            border: none;
+            padding: none;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .slideshow {
+            display: flex;
+            align-items: center;
+        }
+        .pass {
+            width: 50px;
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slideshow">
+            <button class="pass" id="anterior"> ← </button>
+
+            <div class="fotos">
+
+            </div>
+
+            <button class="pass" id="proxima"> → </button>
+        </div>
+    </div>
+    <script>
+        lista = ['Gabriel-Pec.png', 'Leo-Jardim.png', 'Pablo-Vegetti.png', 'Paulinho.png', 'Payet.png']
+        imagem = document.createElement('img')
+        index = 0
+        imagem.src = lista[index]
+
+        foto = document.querySelector('.fotos')
+        foto.appendChild(imagem)
+
+        let botao1 = document.querySelector('#anterior')
+        let botao2 = document.querySelector('#proxima')
+
+
+        function passar() {
+            index++
+            if (index === lista.length) {
+                index = 0
+            }
+            imagem.src = lista[index]
+        }
+
+        function voltar() {
+            index--
+            if (index < 0) {
+                index = lista.length - 1
+            }
+            imagem.src = lista[index]
+        }
+
+
+        botao1.addEventListener('click', voltar)
+        botao2.addEventListener('click', passar)
+    </script>
+</body>
+</html>

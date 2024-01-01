@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 - Q2</title>
+
+    <style>
+        * {
+            margin: 0;
+            border: none;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            display: flex;
+            height: auto;
+            flex-direction: row-reverse;
+            background-color: rgb(0, 32, 60);
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            background-color: rgb(1, 48, 88);
+            color: white;
+            font-size: 18pt;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <button id="menubutton" style="width: 50px; height: 50px; margin: 5px; background-color: cadetblue;">Menu</button>
+    </header>
+    <div class="container">
+        Conteudo
+    </div>
+
+    <script>
+        divMenu = null
+        function AlternarMenu() {
+
+            if (divMenu === null) {
+                let div = document.querySelector('.container')
+                divMenu = document.createElement('div')
+                divMenu.style.position = 'absolute'
+                divMenu.style.top = '60px'
+                divMenu.style.right = '0px'
+
+                div.appendChild(divMenu)
+
+                let menu = document.createElement('ul')
+                menu.style.backgroundColor = 'rgb(0, 114, 214)'
+                menu.style.display = 'flex'
+                menu.style.flexDirection = 'column'
+                menu.style.height = '300px'
+                menu.style.width = '250px'
+
+                divMenu.appendChild(menu)
+
+                let l1 = document.createElement('li')
+                l1.innerHTML = "<a href='#'>Gigante</a>"
+                l1.classList.add('item')
+
+                let l2 = document.createElement('li')
+                l2.innerHTML = "<a href='#'>da</a>"
+                l2.classList.add('item')
+
+                let l3 = document.createElement('li')
+                l3.innerHTML = "<a href='#'>Colina</a>"
+                l3.classList.add('item')
+
+                let l4 = document.createElement('li')
+                l4.innerHTML = "<a href='#'>Mt Brabo</a>"
+                l4.classList.add('item')
+
+                let itens = [l1, l2, l3, l4]
+
+                for (item of itens) {
+                    item.style.backgroundColor = 'rgb(30, 83, 130)'
+                    item.style.listStyle = 'none'
+                    item.style.display = 'flex'
+                    item.style.flex = '1'
+                    item.style.justifyContent = 'center'
+                    item.style.alignItems = 'center'
+                    item.style.border = '2px solid white'
+                    menu.appendChild(item)
+
+                }
+            } else if (divMenu != null) {
+                divMenu.remove()
+                divMenu = null
+            }
+        }
+
+        const botao = document.getElementById('menubutton')
+        botao.addEventListener('click', AlternarMenu)
+    </script>
+</body>
+</html>

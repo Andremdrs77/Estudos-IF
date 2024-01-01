@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 3 - Q1</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+
+    </div>
+    <script>
+        let div = document.getElementById('container')
+        const botao = document.createElement('Button')
+        botao.classList.add('botao')
+
+        botao.style.width = '125px'
+        botao.style.height = '35px'
+        botao.innerText = 'Clique aqui'
+        div.appendChild(botao)
+
+        function CriarCaixa() {
+            let div = document.getElementById('container')
+
+            botao.remove()
+            
+            let caixa = document.createElement('input')
+            caixa.classList.add('mensagem')
+            caixa.style.margin = '10px'
+            caixa.style.width = '25%'
+            caixa.style.height = '20px'
+            div.appendChild(caixa)
+
+            const botao2 = document.createElement('Button')
+            botao2.classList.add('botao')
+
+            botao2.style.width = '125px'
+            botao2.style.height = '35px'
+            botao2.innerText = 'Agora aqui'
+            div.appendChild(botao2)
+            botao2.addEventListener('click', LerCaixa)
+            
+        }
+
+        botao.addEventListener('click', CriarCaixa)
+
+        function LerCaixa() {
+            let caixa = document.querySelector('.mensagem')
+            let mensagem = caixa.value
+            let botao2 = document.querySelector('.botao')
+
+            console.log(mensagem)
+
+            botao2.innerText = 'Cheque o console :>'
+        }
+
+
+
+    </script>
+</body>
+</html>
