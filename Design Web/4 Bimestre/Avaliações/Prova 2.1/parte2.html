@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2.1 - Parte 2</title>
+</head>
+<body>
+    <div class="container">
+        <label for="">Mostrar a tabuada de: </label>
+        <input type="text" id="numeroTabuada">
+        <label for="">Começando de: </label>
+        <input type="text" id="numeroInicial">
+        <label for="">Até: </label>
+        <input type="text" id="numeroFinal">
+        <button id="enviar">Enviar</button>
+    </div>
+    <script>
+        const entryNumeroTabuada = document.querySelector('#numeroTabuada')
+        const entryNumeroInicial = document.querySelector('#numeroInicial')
+        const entryNumeroFinal = document.querySelector('#numeroFinal')
+
+        const div = document.querySelector('.container')
+        tabela = null
+
+
+        function mostrarTabela () {
+
+            if (tabela) {
+                tabela.remove()
+            }
+
+            tabela = document.createElement('table')
+            tabela.border = '1px'
+            div.appendChild(tabela)
+
+            const numeroTabuada = entryNumeroTabuada.value
+            const numeroInicial = entryNumeroInicial.value
+            const numeroFinal = entryNumeroFinal.value
+
+
+            for (let x = numeroInicial; x <= numeroFinal; x++) {
+                let c1 = document.createElement('td')
+                c1.innerHTML = numeroTabuada
+
+                let c2 = document.createElement('td')
+                c2.innerHTML = x
+
+                let c3 = document.createElement('td')
+                c3.innerHTML = numeroTabuada * x
+
+                let tr = document.createElement('tr')
+                tabela.appendChild(tr)
+                tr.appendChild(c1)
+                tr.appendChild(c2)
+                tr.appendChild(c3)
+            }
+        }
+
+
+        let botao = document.getElementById('enviar')
+        botao.addEventListener('click', mostrarTabela)
+    </script>
+</body>
+</html>
