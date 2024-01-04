@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2.1 - Parte 2</title>
+</head>
+<body>
+    <div class="container">
+        <div class="quest">
+            <label for="">Nome: </label>
+            <input type="text" id="entryNome"><br><br>
+            <button id="enviar">Enviar</button>
+        </div>
+    </div>
+    
+    <script>
+        pares = []
+        impares = []
+        function pegaNome() {
+            entry = document.querySelector('#entryNome')
+            nome = entry.value
+
+            if (nome.length % 2 == 0) {
+                pares.push(nome)
+            } else {
+                impares.push(nome)
+            }
+            console.log('pares: ' + pares)
+            console.log('ímpares: ' + impares)
+        }
+
+
+        let botao = document.getElementById('enviar')
+        botao.addEventListener('click', pegaNome)
+    </script>
+</body>
+</html>

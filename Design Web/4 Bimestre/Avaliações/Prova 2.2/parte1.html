@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2.1 - Parte 2</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .quest {
+            height: auto;
+        }
+
+        .main {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            font-size: 18pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quest">
+            <label for="">Cor (em inglês): </label>
+            <input type="text" id="entryCor"><br><br>
+            <label for="">Valor: </label>
+            <input type="text" id="entryTexto"><br><br>
+        </div>
+
+        <div class="main">
+        </div>
+    </div>
+    <script>
+        function muda() {
+            entry1 = document.querySelector('#entryCor')
+            var cor = (entry1.value).toLowerCase()
+            console.log(cor)
+            
+            var div = document.querySelector('.main')
+            div.style.backgroundColor = cor.toLowerCase()
+
+            entry2 = document.querySelector('#entryTexto')
+            var texto = entry2.value
+
+            div.innerHTML = texto
+        }
+
+        setInterval(muda, 1000)
+    </script>
+</body>
+</html>
