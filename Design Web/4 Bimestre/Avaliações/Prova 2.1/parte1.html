@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2.1 - Parte 1</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="imagem"/>
+        <div style="margin-top: 15px;">
+            <label for="">Informe o salário atual</label>
+            <input type="text" id="entrySalario">
+            <button id="enviar">Reajustar</button>
+        </div>
+
+        <div id="resultados">
+
+        </div>
+    </div>
+    <script>
+        imagem = document.querySelector('#imagem')
+        imagem.src = 'tabajara.jpg'
+        imagem.style.width = '256px'
+
+        function calcularReajuste() {
+            entry = document.querySelector('#entrySalario')
+            salario = Number(entry.value)
+
+            if (salario < 280) {
+                aumento = 20
+            } else if (salario >= 280 && salario < 700) {
+                aumento = 15
+            } else if (salario >= 700 && salario < 1500) {
+                aumento = 10
+            } else {
+                aumento = 5
+            }
+
+            documentoHTML = `
+            <p>Salário antes do reajuste: <b>R$ ${salario}</b></p
+            <p>Aumento aplicado: <b>${aumento}%</b></p>
+            <p>Valor do aumento: <b>R$ ${(salario * (aumento/100))}</b></p>
+            <p>Novo salário: <b>R$ ${salario * (aumento/100) + salario}</b></p> 
+            `
+            resultados = document.getElementById('resultados')
+            resultados.innerHTML = documentoHTML
+        }
+
+
+        let botao = document.querySelector('#enviar')
+        botao.addEventListener('click', calcularReajuste)
+    </script>
+</body>
+</html>
